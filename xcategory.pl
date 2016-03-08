@@ -12,7 +12,7 @@ $password       = "wikidb";
 $dsn = "DBI:mysql:database=$name;host=$server;";
 $dbh = DBI->connect($dsn, $user, $password);
 
-$source = '/mnt/repo/eget/enwiki/enwiki-20160204-pages-meta-history1.xml';
+$source = '/mnt/repo/uget/enwiki/enwiki-20160204-pages-meta-history1.xml-p000000010p000002594/enwiki-20160204-pages-meta-history1-02.xml';
 
 $pages = Parse::MediaWikiDump::Pages->new($source);
 print "Done parsing.\n";
