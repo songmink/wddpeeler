@@ -9,9 +9,12 @@ my $file = 'enwiki-20160204-pages-meta-history1-02.xml';
 my $twigPage = XML::Twig->new(twig_handlers => {page => \&title});
 $twigPage->parsefile($file);
 my $page_title;
+my $page_id;
+
 sub title {
 	my ($twig_obj, $page_element) = @_;
-	$page_title = $page_element->first_child('title')->text(), "\n";
+	$page_id = $page_element->first_child('id')->text();
+	$page_title = $page_element->first_child('title')->text();
 }
 
 
@@ -20,6 +23,8 @@ $twigUser->parsefile($file);
 
 sub contributor {
 	my ($twig_obj, $contributor_element) = @_;
+	
+	print $page_id, "\t";
 	print $page_title, "\t";
 	if($contributor_element->children('id')){
 		print $contributor_element->first_child('id')->text(), "\t";
