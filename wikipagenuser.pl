@@ -12,7 +12,6 @@ $twigPage->parsefile($file);
 sub title {
 	my ($twig_obj, $page_element) = @_;
 	print $page_element->first_child('title')->text(), "\n";
-	print "\n";
 }
 
 my $twigUser = XML::Twig->new(twig_handlers => {contributor => \&contributor});
@@ -25,6 +24,7 @@ sub contributor {
 		print $contributor_element->first_child('username')->text(), "\n";
 	}
 	if($contributor_element->children('ip')){
+		print "\t";
 		print $contributor_element->first_child('ip')->text(), "\n";
 	}
 }
