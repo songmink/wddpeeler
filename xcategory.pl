@@ -24,6 +24,8 @@ while(defined($page = $pages->page)) {
 
         $id = $page->id;
         $title = $page->title;
+        $userid = $page->revision->contributor->id;
+        
 		#$text = $page->text;
 
         $dbh->do("insert into category (id, title) value ($id, $title)"); #details of SQL depend on the database setup
